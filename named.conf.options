@@ -1,0 +1,24 @@
+
+acl "confiable" {
+    127.0.0.0/8;
+    192.168.57.0/24;
+};
+
+options {
+    directory "/var/cache/bind";
+
+    // Habilitar la validación DNSSEC
+    dnssec-validation yes;
+
+     // Permitir consultas recursivas solo desde redes de confianza
+    allow-recursion { confiable; };
+    allow-query { confiable; };
+    allow-query-cache { confiable; };
+
+    // Tiempo en caché de respuestas negativas (2 horas)
+    max-ncache-ttl 7200;
+
+    // Reenviar consultas no autorizadas a OpenDNS
+    forwarders { 208.67.222.222; };
+};
+
