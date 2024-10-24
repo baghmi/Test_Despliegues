@@ -12,6 +12,7 @@ Vagrant.configure("2") do |config|
             cp -v /vagrant/named.conf.options /etc/bind/named.conf.options
             cp -v /vagrant/named.conf.local /etc/bind/named.conf.local
             cp -v /vagrant/db.sistema.test /var/lib/bind/db.sistema.test
+            cp -v /vagrant/db.192.168.57 /var/lib/bind/db.192.168.57
             systemctl restart bind9
         SHELL
    end 
@@ -27,6 +28,7 @@ Vagrant.configure("2") do |config|
             cp -v /vagrant/named.conf.options /etc/bind/named.conf.options
             cp -v /vagrant/named.conf.local /etc/bind/named.conf.local
             cp -v /vagrant/db.sistema.test /var/lib/bind/db.sistema.test
+            cp -v /vagrant/db.192.168.57 /var/lib/bind/db.192.168.57
             systemctl restart bind9
         SHELL
 
