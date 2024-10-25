@@ -35,13 +35,21 @@ Archivo que contiene opciones de configuración:
     - tenemos en cuenta el tiempo de cache en respuesta negativa a 2h: `max-ncache-ttl 7200;`.
     - reenviamos consultas no deseadas al OpenDNS: `forwarders { 208.67.222.222; };`.
 
-### named.conf.local
+### tierra.named.conf.local
 Archivo que define las zonas DNS:
 
 - **zone "sistema.test"**: Define la zona directa con su archivo de base de datos
                             correspondiente y permitimos la transferencia del esclavo.
 - **zone "57.168.192.in-addr.arpa"**: Define la zona inversa con su archivo de base de datos
                             correspondiente y permitimos la transferencia del esclavo.
+### venus.tierra.named.conf.local
+Archivo que define las zonas DNS:
+
+- **zone "sistema.test"**: Define la zona directa con su archivo de base de datos
+                            correspondiente y permitimos la transferencia del maestro.
+- **zone "57.168.192.in-addr.arpa"**: Define la zona inversa con su archivo de base de datos
+                            correspondiente y permitimos la transferencia del maestro.
+
 
 ### db.sistema.test
 Archivo de base de datos para la zona directa `sistema.test`:
