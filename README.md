@@ -62,3 +62,39 @@ Archivo de base de datos para la zona inversa `192.168.57.0/24`:
 
 - Contiene registros NS(name server) y PTR(pointer record) que permiten la resolución
 inversa de direcciones IP a nombres de dominio.
+
+
+## Pruebas Realizadas
+  A la hora de realizar las pruebas he usado el fichero test.sh y nslookupy dig por mi cuenta.
+
+  ### Comprobacion de tipo A
+  Las pruebas las he realizado tanto con nslookup y dig
+  `dig @192.168.57.102 mercurio.sistema.test A`
+  `nslookup mercurio.sistema.test 192.168.57.102`
+  y asi con todas las ips
+
+  ### Comprobacion de la resolución inversa de IP
+  Las pruebas las he realizado tanto con nslookup y dig
+  `dig @192.168.57.102 -x 192.168.57.102`
+  `nslookup 192.168.57.103 192.168.57.102`
+  y asi con todas las ips
+
+  ### Comprobación de la resolución de los alias
+  Las pruebas las he realizado tanto con nslookup y dig
+  `dig @192.168.57.102 ns1.sistema.test`
+  `nslookup ns1.sistema.test 192.168.57.102`
+  y asi con todas las ips
+
+  ### Comprobamos los nombres de servidor
+  obtenemos el NS con dig y nslookup 
+  `dig @192.168.57.102 sistema.test NS` 
+  `nslookup -type=NS sistema.test 192.168.57.102`
+
+  ### Comprobamos el MX 
+  Obtenemos el mail exchanger con dig y nslookup
+  `dig @192.168.57.102 sistema.test MX`
+  `nslookup -type=MX sistema.test 192.168.57.102`
+  
+  ### Consulta del registro AXFR
+  Realizamos esta consulta desde el dig solo nos dejaria hacerlo desde el slave
+  `dig @192.168.57.103 sistema.test AXFR`
